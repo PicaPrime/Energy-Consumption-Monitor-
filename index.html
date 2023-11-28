@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Monitor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+
+</head>
+
+<body class="">
+
+
+    <nav class="nav nav-pills flex-column flex-sm-row container" style="padding-top: 10px; padding-bottom: 20px;">
+        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="index.html">HOME</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="chart.html">Full History</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="download data.html">Download Live Data</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="hardware.html">Hardware Description</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="about_us.html">About Us</a>
+    </nav>
+
+
+
+    <div class="live">
+        <div>
+            <iframe id="frame1" width="179" height="104" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=609469468&amp;format=interactive"></iframe>
+        </div>
+        <div>
+            <iframe id="frame2" width="179" height="100" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=1378487804&amp;format=interactive"></iframe>
+        </div>
+        <div>
+            <iframe id="frame3" width="318" height="104" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=2004870222&amp;format=interactive"></iframe>
+        </div>
+        <div>
+            <iframe width="342" height="371" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=1393544274&amp;format=interactive"></iframe>
+        </div>
+        <div>
+            <iframe width="342" height="371" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=285765446&amp;format=interactive"></iframe>
+        </div>
+    </div>
+    <div class="chart">
+        <div>
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=384729144&amp;format=interactive"></iframe>
+        </div>
+        <div>
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTysQzeJThpSebmAdREv0KvUQh414kDLqExDlj9Wx0vw3-qsgkkgHPmdP0zIX7xtsQHqY3UVQsM0XZE/pubchart?oid=1196381606&amp;format=interactive"></iframe>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        window.setInterval("reloadIFrame();", 60000);
+
+        function reloadIFrame() {
+            var frameHolder1 = document.getElementById('frame1');
+            var frameHolder2 = document.getElementById('frame2');
+            var frameHolder3 = document.getElementById('frame3');
+            frameHolder1.src += '';
+            frameHolder2.src += '';
+            frameHolder3.src += '';
+        }
+    </script>
+</body>
+
+</html>

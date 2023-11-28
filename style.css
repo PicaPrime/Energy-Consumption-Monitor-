@@ -1,0 +1,26 @@
+
+
+.title h1 {
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+.live {
+    padding: 20px;
+    outline: 0.5pt solid black;
+    display: flex;
+    gap: 30px;
+}
+
+.live div {
+    align-self: center;
+}
+
+.chart {
+    padding: 25px;
+    display: flex;
+    gap: 250px;
+}
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Sheet</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+<body class="text-center">
+
+    <nav class="nav nav-pills flex-column flex-sm-row container" style="padding-top: 10px; padding-bottom: 20px;">
+        <a class="flex-sm-fill text-sm-center nav-link" href="index.html">HOME</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="chart.html">Full History</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="download data.html">Download Live Data</a>
+        <a class="flex-sm-fill text-sm-center nav-link">Hardware Description</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="about_us.html">About Us</a>
+    </nav>
+
+
+    <div class="container text-wrap fs-3" style="padding-top: 20px; padding-bottom: 20px;">
+        This Data is collected from custom made power monitor.
+        To view the documentation of Power monitor please visite the documentation page.
+        click the Download Power Monitor button to download the Google Sheet or Excel file format. 
+      </div>
+
+<button id="downloadButton" class="btn btn-primary btn-lg ">Download Google Sheet</button>
+
+<script>
+document.getElementById('downloadButton').addEventListener('click', downloadSheet);
+
+function downloadSheet() {
+    // Replace 'YOUR_SPREADSHEET_ID' with the actual ID of your Google Sheet
+    const spreadsheetId = '12GAxTVI8JvMG_B71rtJl_eSdNZhgzzD35s_SWKSugIo';
+    
+    // Replace 'YOUR_API_KEY' with the API key you obtained from the Google Cloud Console
+    const apiKey = 'AIzaSyBqRnfT-UUIkqwUE350CuJrAX9gf2mCXX8';
+
+    // Fetch data from Google Sheets API
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1?key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            // Convert data to CSV format
+            const csvData = convertToCSV(data.values);
+
+            // Create a Blob and download link
+            const blob = new Blob([csvData], { type: 'text/csv' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'downloaded_sheet.csv';
+            link.click();
+        })
+        .catch(error => console.error('Error fetching data from Google Sheets:', error));
+}
+
+function convertToCSV(array) {
+    return array.map(row => row.join(',')).join('\n');
+}
+</script>
+
+</body>
+</html>
